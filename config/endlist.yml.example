@@ -1,0 +1,6 @@
+development:
+  s3:
+    credentials:
+      access_key: [ACCESS KEY ID]
+      access_secret: [ACCESS KEY SECRET]
+      bucket: [BUCKET NAME]
