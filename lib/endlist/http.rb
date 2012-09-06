@@ -8,11 +8,14 @@ module Endlist
       def store(list)
         invalid_storage_type!(list.classname) unless list.class <= Array
 
+        nonce = UUID.generate
         response = Typhoeus::Request.post(
-          "http://list.endless.fm/api", 
+          "http://#{Endlist::Config.host}/api", 
           :body => {
-            :list => list.to_json, 
-            :access => 'list.endlist.fm'
+            :list       => list.to_json, 
+            :client_id  => Endlist::Config.client_id,
+            :signature  => Endlist::Config.signature(nonce),
+            :nonce      => nonce
           }
         )
 
@@ -22,10 +25,13 @@ module Endlist
       end
 
       def fetch(key)
+        nonce = UUID.generate
         response = Typhoeus::Request.get(
-          "http://list.endless.fm/api/#{key}", 
+          "http://#{Endlist::Config.host}/api/#{key}", 
           :params => {
-            :access => 'list.endlist.fm'
+            :client_id  => Endlist::Config.client_id,
+            :signature  => Endlist::Config.signature(nonce),
+            :nonce      => nonce
           }
         )
         

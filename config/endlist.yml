@@ -1,6 +1,0 @@
-development:
-  s3:
-    credentials:
-      bucket: pidgin
-      access_key_id: AKIAJG26333IRFIJVM2Q 
-      secret_access_key: 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 

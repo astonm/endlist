@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project         = "endlist"
 
   s.add_dependency('typhoeus', '~> 0.5.0.alpha')
+  s.add_dependency('uuid', '~> 2.3.5')
   s.add_development_dependency 'bundler', '~> 1.0'
   s.add_development_dependency 'rake', '~> 0.9'
   s.add_development_dependency 'rdoc', '~> 3.9'

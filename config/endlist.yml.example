@@ -1,6 +1,4 @@
-development:
-  s3:
-    credentials:
-      access_key: [ACCESS KEY ID]
-      access_secret: [ACCESS KEY SECRET]
-      bucket: [BUCKET NAME]
+credentials:
+  client_id: [ACCESS KEY ID]
+  secret: [ACCESS KEY SECRET]
+  host: [HOST]
