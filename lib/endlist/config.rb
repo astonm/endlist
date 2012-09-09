@@ -45,7 +45,8 @@ module Endlist
 
       def yaml
         return @yaml if @yaml
-        return {} unless path
+        return self.yaml = JSON.parse(ENV['endlist']) if ENV['endlist']
+        return self.yaml = {} unless path
         file_path = File.join(path, 'endlist.yml')
         return self.yaml = YAML.load_file(file_path)[env] if File.exists?(file_path)
         {}
