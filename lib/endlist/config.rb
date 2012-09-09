@@ -35,7 +35,7 @@ module Endlist
 
       def host
         return @host if @host
-        self.host = yaml['host'] || "list.endless.fm"
+        self.host = yaml['credentials']['host'] || "list.endless.fm"
       end
 
       def host=(val)
@@ -46,7 +46,8 @@ module Endlist
       def yaml
         return @yaml if @yaml
         return {} unless path
-        return self.yaml = YAML.load_file(File.join(path, 'endlist.yml'))[env] if File.exists?(path)
+        file_path = File.join(path, 'endlist.yml')
+        return self.yaml = YAML.load_file(file_path)[env] if File.exists?(file_path)
         {}
       end
 

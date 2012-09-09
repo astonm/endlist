@@ -4,8 +4,8 @@ module Endlist
     include Endlist::Config
 
     def initialize(opts={})
-      self.client_id  = opts[:client_id]
-      self.secret     = opts[:secret]
+      self.client_id  = opts[:client_id] if opts[:client_id]
+      self.secret     = opts[:secret] if opts[:secret]
     end
 
     def find(key)
