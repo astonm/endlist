@@ -70,7 +70,7 @@ module Endlist
       def path
         return @path if @path
         return self.path = Rails.root.join("config") if defined?(Rails)
-        return File.join(Dir.pwd, 'config')
+        return self.path = File.join(Dir.pwd, 'config')
         nil 
       end
       

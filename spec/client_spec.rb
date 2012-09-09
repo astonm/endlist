@@ -7,7 +7,6 @@ describe Endlist::Client do
 
   it "should save something" do
     @client.save ['1','2','3']
-    p @client
   end
 
   it "should save and fetch something" do
